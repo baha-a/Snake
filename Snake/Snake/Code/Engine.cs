@@ -14,6 +14,13 @@ namespace SnakeGame
         public Cell SnakeLocation { get { return snake.Head; } }
 
 
+        public void ForeachSnakeCell(Action<Cell> callback)
+        {
+            foreach (var c in snake)
+                callback(c);
+        }
+
+
         Cell apple;
 
         Snake snake;
@@ -53,18 +60,18 @@ namespace SnakeGame
 
         public void NextFrame()
         {
-            if (snake.IsHitWall(Width,Height) || snake.IsEatItself())
+            if (snake.IsHitWall(Width, Height) || snake.IsEatItself())
             {
                 gameOverEvent();
             }
-            else if (snake.IsEatApple(apple))
-            {
-                GetNewApple();
-                snake.Grow();
-                eatAppleEvent();
-            }
             else
             {
+                if (snake.IsEatApple(apple))
+                {
+                    GetNewApple();
+                    snake.Grow();
+                    eatAppleEvent();
+                }
                 snake.MoveOneStep();
             }
         }

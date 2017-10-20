@@ -72,19 +72,19 @@
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Location = new System.Drawing.Point(12, 68);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(607, 420);
+            this.panel.Size = new System.Drawing.Size(601, 420);
             this.panel.TabIndex = 2;
             // 
             // nudInterval
             // 
             this.nudInterval.Location = new System.Drawing.Point(64, 5);
             this.nudInterval.Maximum = new decimal(new int[] {
-            100000,
+            1000,
             0,
             0,
             0});
             this.nudInterval.Minimum = new decimal(new int[] {
-            100,
+            10,
             0,
             0,
             0});
@@ -92,7 +92,7 @@
             this.nudInterval.Size = new System.Drawing.Size(75, 20);
             this.nudInterval.TabIndex = 3;
             this.nudInterval.Value = new decimal(new int[] {
-            1000,
+            100,
             0,
             0,
             0});
@@ -103,7 +103,7 @@
             this.lblStatue.AutoSize = true;
             this.lblStatue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStatue.ForeColor = System.Drawing.Color.Red;
-            this.lblStatue.Location = new System.Drawing.Point(441, 16);
+            this.lblStatue.Location = new System.Drawing.Point(382, 7);
             this.lblStatue.Name = "lblStatue";
             this.lblStatue.Size = new System.Drawing.Size(29, 15);
             this.lblStatue.TabIndex = 0;
@@ -130,7 +130,7 @@
             this.nudWidth.Size = new System.Drawing.Size(39, 20);
             this.nudWidth.TabIndex = 5;
             this.nudWidth.Value = new decimal(new int[] {
-            20,
+            80,
             0,
             0,
             0});
@@ -148,7 +148,7 @@
             this.nudHeight.Size = new System.Drawing.Size(39, 20);
             this.nudHeight.TabIndex = 6;
             this.nudHeight.Value = new decimal(new int[] {
-            20,
+            50,
             0,
             0,
             0});
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 500);
+            this.ClientSize = new System.Drawing.Size(625, 500);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudHeight);

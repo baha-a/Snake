@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace SnakeGame
 {
-    public class Snake
+    public class Snake : IEnumerable<Cell>
     {
         public Diractions Diraction { get; private set; }
 
@@ -95,6 +96,16 @@ namespace SnakeGame
                 if (Head != s && Head.OnSamePositionOf(s))
                         return true;
             return false;
+        }
+
+        public IEnumerator<Cell> GetEnumerator()
+        {
+            return HeadWithTale.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return HeadWithTale.GetEnumerator();
         }
     }
 }

@@ -15,12 +15,13 @@ namespace Client
     {
         Engine engino;
         Timer timer;
+        RectCalc calc;
 
         public SnakeWindowsFormClient()
         {
             InitializeComponent();
 
-            engino = new Engine() { Height = 20, Width = 20 };
+            engino = new Engine() { Height = (int)nudHeight.Value, Width = (int)nudWidth.Value };
             engino.OnGameOver += Engino_OnGameOver;
             engino.OnSnakeEatApple += Engino_OnSnakeEatApple;
             engino.SetupNewGame();
@@ -29,14 +30,18 @@ namespace Client
             timer = new Timer();
             timer.Tick += T_Tick;
             timer.Interval = 1000;
+
+            updateTheCalculater();
+        }
+
+        private void updateTheCalculater()
+        {
+            calc = new RectCalc(panel.Height, panel.Width, engino.Width, engino.Height);
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             engino.SetupNewGame();
-            btnStart.Text = "Start";
-            if(timer.Enabled)
-                timer.Stop();
             getGameStatus();
         }
 
@@ -50,7 +55,26 @@ namespace Client
 
         private void drawGameGraphicaly()
         {
-            panel.CreateGraphics();
+            updateTheCalculater();
+            var g = panel.CreateGraphics();
+            clearThePanel(g);
+            drawTheApple(g);
+            drawTheSnake(g);
+        }
+
+        private void drawTheSnake(Graphics g)
+        {
+            engino.ForeachSnakeCell(x => g.FillRectangle(Brushes.White, calc.Locat(x)));
+        }
+
+        private void drawTheApple(Graphics g)
+        {
+            g.FillRectangle(Brushes.Red, calc.Locat(engino.AppleLocation));
+        }
+
+        private void clearThePanel(Graphics g)
+        {
+            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, panel.Width, panel.Height));
         }
 
         private void getGameStatus()
@@ -68,6 +92,7 @@ namespace Client
         private void Engino_OnGameOver()
         {
             timer.Stop();
+            MessageBox.Show("Game over","You Loser");
             notify("Game over, You Loser");
         }
 
@@ -105,12 +130,14 @@ namespace Client
         private void nudWidth_ValueChanged(object sender, EventArgs e)
         {
             engino.Width = (int)nudWidth.Value;
+            updateTheCalculater();
             notify("Width set to "+ nudWidth.Value);
         }
 
         private void nudHeight_ValueChanged(object sender, EventArgs e)
         {
             engino.Height = (int)nudHeight.Value;
+            updateTheCalculater();
             notify("Height set to " + nudHeight.Value);
         }
 

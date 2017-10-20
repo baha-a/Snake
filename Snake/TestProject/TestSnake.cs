@@ -168,6 +168,22 @@ namespace TestProject
         }
 
 
+        [TestMethod]
+        public void Snake_AfterSnakeEatAppleAndNewAppleAppered()
+        {
+            var apple = new Cell() { I = 0, J = 2 };
+
+            PutSnakeInPositions(0, 0);
+            Assert.IsFalse(snake.IsEatApple(apple));
+
+            PutSnakeInPositions(0, 2);
+            Assert.IsTrue(snake.IsEatApple(apple));
+
+            apple.I = 5;
+            Assert.IsFalse(snake.IsEatApple(apple));
+        }
+
+
 
         [TestMethod]
         public void Snake_OneLengthSnakeDoseNotEatItself()

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RectCalc.cs" />
     <Compile Include="SnakeWindowsFormClient.cs">
       <SubType>Form</SubType>
     </Compile>
