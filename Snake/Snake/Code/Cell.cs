@@ -22,5 +22,10 @@
         {
             return (x.I == I && x.J == J);
         }
+
+        public override string ToString()
+        {
+            return I + ", " + J;
+        }
     }
 }

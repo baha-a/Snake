@@ -7,20 +7,27 @@ namespace SnakeGame
         public int Width { get; set; }
         public int Height { get; set; }
 
+        public Diractions SnakeDiraction { get { return snake.Diraction; } }
+        public int SnakeLength { get { return snake.Length; } }
+
+        public Cell AppleLocation { get { return apple; } }
+        public Cell SnakeLocation { get { return snake.Head; } }
+
+
         Cell apple;
 
         Snake snake;
 
 
-        public Engine()
+        public Engine(int width = 24, int height = 24)
         {
-            Width = 24;
-            Height = 24;
+            Width = width;
+            Height = height;
 
-            Setup();
+            SetupNewGame();
         }
 
-        public void Setup()
+        public void SetupNewGame()
         {
             snake = getCenter();
             GetNewApple();
@@ -44,10 +51,9 @@ namespace SnakeGame
         }
 
 
-
         public void NextFrame()
         {
-            if (snake.IsHitWall(Width,Height) && snake.IsEatItself())
+            if (snake.IsHitWall(Width,Height) || snake.IsEatItself())
             {
                 gameOverEvent();
             }
@@ -73,6 +79,25 @@ namespace SnakeGame
         private void gameOverEvent()
         {
             OnGameOver?.Invoke();
+        }
+
+
+
+        public void Up()
+        {
+            snake.Up();
+        }
+        public void Right()
+        {
+            snake.Right();
+        }
+        public void Left()
+        {
+            snake.Left();
+        }
+        public void Down()
+        {
+            snake.Down();
         }
     }
 }

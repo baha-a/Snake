@@ -3,17 +3,6 @@ using System.Collections.Generic;
 
 namespace SnakeGame
 {
-    public enum Diractions
-    {
-        Up,
-        Down,
-        Left,
-        Right,
-
-        None,
-    }
-
-
     public class Snake
     {
         public Diractions Diraction { get; private set; }
