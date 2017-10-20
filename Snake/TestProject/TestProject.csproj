@@ -50,11 +50,8 @@
   <ItemGroup>
     <Compile Include="Code\Cell.cs" />
     <Compile Include="Code\Framer.cs" />
-    <Compile Include="Code\GameBoard.cs" />
-    <Compile Include="Code\Random.cs" />
+    <Compile Include="Code\World.cs" />
     <Compile Include="Code\Snake.cs" />
-    <Compile Include="TestFramer.cs" />
-    <Compile Include="TestGrid.cs" />
     <Compile Include="TestSnake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

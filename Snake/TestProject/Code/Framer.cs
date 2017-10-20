@@ -4,57 +4,43 @@ namespace TestProject
 {
     public class Framer
     {
-        GameBoard board;
+        World world;
         Snake snake;
 
         public Framer()
         {
-            board = new GameBoard();
+            world = new World();
             snake = new Snake();
 
-            board.Initialize();
+            world.Initialize();
         }
 
         public void NextFrame()
         {
-            if (board.IsSnakeHitWall() && board.IsSnakeEatItself())
+            if (snake.IsHitWall(world) && snake.IsEatItself())
             {
-                GameOver();
+                gameOverEvent();
             }
-            else if (board.IsSnakeEatApple())
+            else if (snake.IsEatApple(world.Apple))
             {
-                board.ChangeApplePosition();
+                world.GenerateNewApple();
                 snake.Grow();
-                EatApple();
+                eatAppleEvent();
             }
             else
             {
-                switch (snake.Diraction)
-                {
-                    case Diractions.Up:
-                        board.SnakeUp();
-                        break;
-                    case Diractions.Down:
-                        board.SnakeDown();
-                        break;
-                    case Diractions.Left:
-                        board.SnakeLeft();
-                        break;
-                    case Diractions.Right:
-                        board.SnakeRight();
-                        break;
-                }
+                snake.MoveOneStep();
             }
         }
 
         public event Action OnSnakeEatApple;
-        private void EatApple()
+        private void eatAppleEvent()
         {
             OnSnakeEatApple?.Invoke();
         }
 
         public event Action OnGameOver;
-        public void GameOver()
+        public void gameOverEvent()
         {
             OnGameOver?.Invoke();
         }

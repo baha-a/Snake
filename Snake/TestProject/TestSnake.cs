@@ -34,6 +34,14 @@ namespace TestProject
             Assert.AreEqual(snake.Length, 2);
         }
 
+        [TestMethod]
+        public void Snake_GrowByNine_LengthTenCells()
+        {
+            for (int i = 1; i <= 9; i++)
+                snake.Grow();
+            Assert.AreEqual(snake.Length, 10);
+        }
+
 
         [TestMethod]
         public void Snake_MoveUp()
@@ -122,5 +130,41 @@ namespace TestProject
             snake.Up();
             Assert.AreEqual(snake.Diraction, Diractions.Up);
         }
+
+
+        [TestMethod]
+        public void Snake_IsHitWall()
+        {
+            var b = new World() { Width = 10, Height = 10 };
+            PutSnakeInPositions(0, 0);
+            Assert.IsFalse(snake.IsHitWall(b));
+
+            PutSnakeInPositions(-1, -1);
+            Assert.IsTrue(snake.IsHitWall(b));
+
+            PutSnakeInPositions(b.Width, b.Height);
+            Assert.IsTrue(snake.IsHitWall(b));
+        }
+
+        private void PutSnakeInPositions(int V, int V1)
+        {
+            snake.Head.I = V;
+            snake.Head.J = V1;
+        }
+
+
+        [TestMethod]
+        public void Snake_SnakeEatApple()
+        {
+            var apple = new Cell() { I = 0, J = 2 };
+
+            PutSnakeInPositions(0, 0);
+            Assert.IsFalse(snake.IsEatApple(apple));
+
+            PutSnakeInPositions(0, 2);
+            Assert.IsTrue(snake.IsEatApple(apple));
+        }
+
+
     }
 }
