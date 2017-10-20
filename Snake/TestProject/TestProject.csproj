@@ -51,15 +51,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\Cell.cs" />
-    <Compile Include="Code\Framer.cs" />
-    <Compile Include="Code\World.cs" />
-    <Compile Include="Code\Snake.cs" />
     <Compile Include="TestSnake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Snake\Snake.csproj">
+      <Project>{c21df8ac-84eb-4f43-92c9-ab4405f73564}</Project>
+      <Name>Snake</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

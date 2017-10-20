@@ -1,4 +1,4 @@
-﻿namespace TestProject
+﻿namespace SnakeGame
 {
     public class Cell
     {

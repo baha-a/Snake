@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TestProject
+namespace SnakeGame
 {
     public enum Diractions
     {
-        Up, Down, Left, Right, None,
+        Up,
+        Down,
+        Left,
+        Right,
+
+        None,
     }
 
 
@@ -16,6 +21,7 @@ namespace TestProject
         LinkedList<Cell> HeadWithTale { get; set; }
 
         public int Length { get { return HeadWithTale.Count;  } }
+
         public Cell Head { get { return HeadWithTale.First.Value; } }
 
 
@@ -84,9 +90,9 @@ namespace TestProject
         }
 
 
-        public bool IsHitWall(World world)
+        public bool IsHitWall(int width, int height)
         {
-            return !(Head.I >= 0 && Head.I < world.Width && Head.J >= 0 && Head.J < world.Height);
+            return !((Head.I >= 0 && Head.I < width ) && (Head.J >= 0 && Head.J < height));
         }
 
         public bool IsEatApple(Cell apple)
@@ -97,11 +103,8 @@ namespace TestProject
         public bool IsEatItself()
         {
             foreach (var s in HeadWithTale)
-            {
-                if (Head != s)
-                    if (Head.OnSamePositionOf(s))
+                if (Head != s && Head.OnSamePositionOf(s))
                         return true;
-            }
             return false;
         }
     }

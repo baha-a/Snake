@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SnakeGame;
 
 namespace TestProject
 {
@@ -135,15 +135,17 @@ namespace TestProject
         [TestMethod]
         public void Snake_IsHitWall()
         {
-            var b = new World() { Width = 10, Height = 10 };
+            int Width = 10;
+            int Height = 10;
+
             PutSnakeInPositions(0, 0);
-            Assert.IsFalse(snake.IsHitWall(b));
+            Assert.IsFalse(snake.IsHitWall(Width, Height));
 
             PutSnakeInPositions(-1, -1);
-            Assert.IsTrue(snake.IsHitWall(b));
+            Assert.IsTrue(snake.IsHitWall(Width, Height));
 
-            PutSnakeInPositions(b.Width, b.Height);
-            Assert.IsTrue(snake.IsHitWall(b));
+            PutSnakeInPositions(Width, Height);
+            Assert.IsTrue(snake.IsHitWall(Width, Height));
         }
 
         private void PutSnakeInPositions(int V, int V1)
