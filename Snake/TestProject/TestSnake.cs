@@ -166,5 +166,87 @@ namespace TestProject
         }
 
 
+
+        [TestMethod]
+        public void Snake_OneLengthSnakeDoseNotEatItself()
+        {
+            Assert.IsFalse(snake.IsEatItself());
+        }
+
+
+        [TestMethod]
+        public void Snake_ThreeLengthSnakeMoveCorrectly()
+        {
+            snake.Grow();
+            snake.Grow();
+
+            snake.Up();
+            snake.MoveOneStep();
+            Assert.IsTrue(snake.Head.OnSamePositionOf(new Cell(0,-1)));
+            snake.Right();
+            snake.MoveOneStep();
+            Assert.IsTrue(snake.Head.OnSamePositionOf(new Cell(1, -1)));
+            snake.Down();
+            snake.MoveOneStep();
+            Assert.IsTrue(snake.Head.OnSamePositionOf(new Cell(1, 0)));
+            snake.Left();
+            snake.MoveOneStep();
+            Assert.IsTrue(snake.Head.OnSamePositionOf(new Cell(0, 0)));
+        }
+
+        [TestMethod]
+        public void Snake_ThreeLengthSnakeDoseNotEatItself()
+        {
+            snake.Grow();
+            snake.Grow();
+
+            snake.Up();
+            snake.MoveOneStep();
+            snake.Right();
+            snake.MoveOneStep();
+            snake.Down();
+            snake.MoveOneStep();
+            snake.Left();
+            snake.MoveOneStep();
+            Assert.IsFalse(snake.IsEatItself());
+        }
+
+
+        [TestMethod]
+        public void Snake_FourLengthSnakeDoseNotEatItself()
+        {
+            snake.Grow();
+            snake.Grow();
+            snake.Grow();
+
+            snake.Up();
+            snake.MoveOneStep();
+            snake.Right();
+            snake.MoveOneStep();
+            snake.Down();
+            snake.MoveOneStep();
+            snake.Left();
+            snake.MoveOneStep();
+            Assert.IsFalse(snake.IsEatItself());
+        }
+
+        [TestMethod]
+        public void Snake_FiveLengthSnakeEatItself()
+        {
+            snake.Grow();
+            snake.Grow();
+            snake.Grow();
+            snake.Grow();
+
+            snake.Up();
+            snake.MoveOneStep();
+            snake.Right();
+            snake.MoveOneStep();
+            snake.Down();
+            snake.MoveOneStep();
+            snake.Left();
+            snake.MoveOneStep();
+            Assert.IsTrue(snake.IsEatItself());
+        }
     }
 }

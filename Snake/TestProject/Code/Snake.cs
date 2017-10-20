@@ -12,31 +12,29 @@ namespace TestProject
     public class Snake
     {
         public Diractions Diraction { get; private set; }
+
+        LinkedList<Cell> HeadWithTale { get; set; }
+
         public int Length { get { return HeadWithTale.Count;  } }
+        public Cell Head { get { return HeadWithTale.First.Value; } }
 
-        List<Cell> HeadWithTale { get; set; }
 
-        public bool IsHitWall(World world)
-        {
-            return !(Head.I >= 0 && Head.I < world.Width && Head.J >= 0 && Head.J < world.Height);
-        }
-
-        public Cell Head { get; private set; }
 
 
         public Snake() : this(0, 0) { }
 
-        public Snake(int i,int j)
+        public Snake(int i, int j)
         {
             Diraction = Diractions.None;
 
-            HeadWithTale = new List<Cell> { (Head = new Cell() { I = i, J = j }) };
+            HeadWithTale = new LinkedList<Cell>();
+            HeadWithTale.AddFirst(new Cell(i, j));
         }
 
 
         public void Grow()
         {
-            HeadWithTale.Add(Head = new Cell() { I = Head.I, J = Head.J });
+            HeadWithTale.AddLast(new Cell(Head.I, Head.J));
         }
 
 
@@ -81,16 +79,20 @@ namespace TestProject
 
         private void moveSnake(int i, int j)
         {
-            HeadWithTale[Length - 1].PutOn(i, j);
-            Head = HeadWithTale[Length - 1];
+            HeadWithTale.AddFirst(new Cell(i, j));
+            HeadWithTale.RemoveLast();
         }
 
+
+        public bool IsHitWall(World world)
+        {
+            return !(Head.I >= 0 && Head.I < world.Width && Head.J >= 0 && Head.J < world.Height);
+        }
 
         public bool IsEatApple(Cell apple)
         {
             return Head.OnSamePositionOf(apple);
         }
-
 
         public bool IsEatItself()
         {
