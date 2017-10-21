@@ -121,6 +121,11 @@
             // nudWidth
             // 
             this.nudWidth.Location = new System.Drawing.Point(211, 5);
+            this.nudWidth.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.nudWidth.Minimum = new decimal(new int[] {
             10,
             0,
@@ -139,6 +144,11 @@
             // nudHeight
             // 
             this.nudHeight.Location = new System.Drawing.Point(300, 5);
+            this.nudHeight.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.nudHeight.Minimum = new decimal(new int[] {
             10,
             0,

@@ -75,6 +75,7 @@ namespace Client
         private void clearThePanel(Graphics g)
         {
             g.FillRectangle(Brushes.Black, new Rectangle(0, 0, panel.Width, panel.Height));
+            //g.DrawRectangle(new Pen(Brushes.Cyan,10), new Rectangle(0, 0, panel.Width, panel.Height));
         }
 
         private void getGameStatus()
