@@ -30,7 +30,8 @@ namespace SnakeGame
 
         public void Grow()
         {
-            HeadWithTale.AddLast(new Cell(Head.I, Head.J));
+            var t = HeadWithTale.Last.Value;
+            HeadWithTale.AddLast(new Cell(t.I-1, t.J-1));
         }
 
 

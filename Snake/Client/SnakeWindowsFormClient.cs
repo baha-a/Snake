@@ -163,5 +163,10 @@ namespace Client
 
             return (keyCode == Keys.Up || keyCode == Keys.Down || keyCode == Keys.Left || keyCode == Keys.Right);
         }
+
+        private void btnGrow_Click(object sender, EventArgs e)
+        {
+            engino.SnakeGrow();
+        }
     }
 }

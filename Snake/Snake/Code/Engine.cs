@@ -76,6 +76,12 @@ namespace SnakeGame
             }
         }
 
+        public void SnakeGrow()
+        {
+            snake.Grow();
+        }
+
+
         public event Action OnSnakeEatApple;
         private void eatAppleEvent()
         {

@@ -38,6 +38,7 @@
             this.nudHeight = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGrow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
@@ -103,7 +104,7 @@
             this.lblStatue.AutoSize = true;
             this.lblStatue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStatue.ForeColor = System.Drawing.Color.Red;
-            this.lblStatue.Location = new System.Drawing.Point(382, 7);
+            this.lblStatue.Location = new System.Drawing.Point(427, 7);
             this.lblStatue.Name = "lblStatue";
             this.lblStatue.Size = new System.Drawing.Size(29, 15);
             this.lblStatue.TabIndex = 0;
@@ -182,11 +183,22 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Height";
             // 
+            // btnGrow
+            // 
+            this.btnGrow.Location = new System.Drawing.Point(345, 31);
+            this.btnGrow.Name = "btnGrow";
+            this.btnGrow.Size = new System.Drawing.Size(66, 23);
+            this.btnGrow.TabIndex = 9;
+            this.btnGrow.Text = "Grow";
+            this.btnGrow.UseVisualStyleBackColor = true;
+            this.btnGrow.Click += new System.EventHandler(this.btnGrow_Click);
+            // 
             // SnakeWindowsFormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 500);
+            this.Controls.Add(this.btnGrow);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudHeight);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.NumericUpDown nudHeight;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGrow;
     }
 }
 
