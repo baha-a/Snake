@@ -4,4 +4,6 @@ build using Test-Driven Desgin,
 
 # Screenshot
 
-![Screenshot of the game](https://raw.githubusercontent.com/bhlshrf/Snake/master/screenshot.gif)
+<p align="center">
+ <img align="center" alt="Screenshot of the game" src="https://raw.githubusercontent.com/bhlshrf/Snake/master/screenshot.gif" />
+</p>
