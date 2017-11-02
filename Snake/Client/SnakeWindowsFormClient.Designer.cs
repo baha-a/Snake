@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGrow = new System.Windows.Forms.Button();
+            this.btn_growX10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeight)).BeginInit();
@@ -185,7 +186,7 @@
             // 
             // btnGrow
             // 
-            this.btnGrow.Location = new System.Drawing.Point(345, 31);
+            this.btnGrow.Location = new System.Drawing.Point(345, 2);
             this.btnGrow.Name = "btnGrow";
             this.btnGrow.Size = new System.Drawing.Size(66, 23);
             this.btnGrow.TabIndex = 9;
@@ -193,11 +194,22 @@
             this.btnGrow.UseVisualStyleBackColor = true;
             this.btnGrow.Click += new System.EventHandler(this.btnGrow_Click);
             // 
+            // btn_growX10
+            // 
+            this.btn_growX10.Location = new System.Drawing.Point(345, 31);
+            this.btn_growX10.Name = "btn_growX10";
+            this.btn_growX10.Size = new System.Drawing.Size(66, 23);
+            this.btn_growX10.TabIndex = 10;
+            this.btn_growX10.Text = "Grow X10";
+            this.btn_growX10.UseVisualStyleBackColor = true;
+            this.btn_growX10.Click += new System.EventHandler(this.btn_growX10_Click);
+            // 
             // SnakeWindowsFormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 500);
+            this.Controls.Add(this.btn_growX10);
             this.Controls.Add(this.btnGrow);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGrow;
+        private System.Windows.Forms.Button btn_growX10;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 namespace SnakeGame
 {
     public class Snake : IEnumerable<Cell>
@@ -14,7 +15,7 @@ namespace SnakeGame
 
         public Cell Head { get { return HeadWithTale.First.Value; } }
 
-
+        bool Locked = false;
 
 
         public Snake() : this(0, 0) { }
@@ -31,36 +32,56 @@ namespace SnakeGame
         public void Grow()
         {
             var t = HeadWithTale.Last.Value;
-            HeadWithTale.AddLast(new Cell(t.I-1, t.J-1));
+            HeadWithTale.AddLast(new Cell(t.I + 1000, t.J + 1000));
         }
 
 
         public void Up()
         {
+            if (Locked)
+                return;
+
             if (Diraction == Diractions.Down)
                 return;
             Diraction = Diractions.Up;
+
+            Locked = true;
         }
 
         public void Down()
         {
+            if (Locked)
+                return;
+
             if (Diraction == Diractions.Up)
                 return;
             Diraction = Diractions.Down;
+
+            Locked = true;
         }
 
         public void Left()
         {
+            if (Locked)
+                return;
+
             if (Diraction == Diractions.Right)
                 return;
             Diraction = Diractions.Left;
+
+            Locked = true;
         }
 
         public void Right()
         {
+            if (Locked)
+                return;
+
             if (Diraction == Diractions.Left)
                 return;
             Diraction = Diractions.Right;
+
+            Locked = true;
         }
 
         public void MoveOneStep()
@@ -72,6 +93,8 @@ namespace SnakeGame
                 case Diractions.Left : moveSnake(Head.I - 1, Head.J); break;
                 case Diractions.Right: moveSnake(Head.I + 1, Head.J); break;
             }
+
+            Locked = false;
         }
 
         private void moveSnake(int i, int j)

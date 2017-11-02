@@ -32,6 +32,10 @@ namespace Client
             timer.Interval = 1000;
 
             updateTheCalculater();
+
+            btnStart_Click(btnStart, null);
+            btnStart_Click(btnStart, null);
+            btnStart_Click(btnStart, null);
         }
 
         private void updateTheCalculater()
@@ -94,6 +98,9 @@ namespace Client
         {
             timer.Stop();
             MessageBox.Show("Game over","You Loser");
+            
+            btnNewGame_Click(null, null);
+            btnStart_Click(btnStart, null);
             notify("Game over, You Loser");
         }
 
@@ -167,6 +174,12 @@ namespace Client
         private void btnGrow_Click(object sender, EventArgs e)
         {
             engino.SnakeGrow();
+        }
+
+        private void btn_growX10_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+                engino.SnakeGrow();
         }
     }
 }

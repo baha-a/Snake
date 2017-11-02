@@ -117,17 +117,31 @@ namespace TestProject
         {
             snake.Up();
             Assert.AreEqual(snake.Diraction, Diractions.Up);
+            snake.MoveOneStep();
 
             snake.Left();
             Assert.AreEqual(snake.Diraction, Diractions.Left);
+            snake.MoveOneStep();
 
             snake.Down();
             Assert.AreEqual(snake.Diraction, Diractions.Down);
+            snake.MoveOneStep();
 
             snake.Right();
             Assert.AreEqual(snake.Diraction, Diractions.Right);
+            snake.MoveOneStep();
 
             snake.Up();
+            Assert.AreEqual(snake.Diraction, Diractions.Up);
+        }
+
+
+        [TestMethod]
+        public void Snake_MoveUpThanLeftThanDownWithoutMovingOneStep()
+        {
+            snake.Up();
+            snake.Left();
+            snake.Down();
             Assert.AreEqual(snake.Diraction, Diractions.Up);
         }
 
