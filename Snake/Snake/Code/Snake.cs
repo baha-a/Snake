@@ -40,48 +40,44 @@ namespace SnakeGame
         {
             if (Locked)
                 return;
+            Locked = true;
 
             if (Diraction == Diractions.Down)
                 return;
             Diraction = Diractions.Up;
-
-            Locked = true;
         }
 
         public void Down()
         {
             if (Locked)
                 return;
+            Locked = true;
 
             if (Diraction == Diractions.Up)
                 return;
             Diraction = Diractions.Down;
-
-            Locked = true;
         }
 
         public void Left()
         {
             if (Locked)
                 return;
+            Locked = true;
 
             if (Diraction == Diractions.Right)
                 return;
             Diraction = Diractions.Left;
-
-            Locked = true;
         }
 
         public void Right()
         {
             if (Locked)
                 return;
+            Locked = true;
 
             if (Diraction == Diractions.Left)
                 return;
             Diraction = Diractions.Right;
-
-            Locked = true;
         }
 
         public void MoveOneStep()

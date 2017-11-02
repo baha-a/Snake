@@ -137,12 +137,21 @@ namespace TestProject
 
 
         [TestMethod]
-        public void Snake_MoveUpThanLeftThanDownWithoutMovingOneStep()
+        public void Snake_MoveWithoutMovingRealStepShouldDownChangeDiraction()
         {
             snake.Up();
             snake.Left();
             snake.Down();
+            snake.Right();
             Assert.AreEqual(snake.Diraction, Diractions.Up);
+            snake.MoveOneStep();
+
+            snake.Left();
+            snake.Up();
+            snake.Down();
+            snake.Right();
+            Assert.AreEqual(snake.Diraction, Diractions.Left);
+            snake.MoveOneStep();
         }
 
 
