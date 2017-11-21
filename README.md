@@ -1,6 +1,6 @@
 # Snake
-My Implementation of the famous 2D Snake game, 
-build using Test-Driven Desgin,
+My Implementation of the Snake game, 
+build using C# and Test-Driven Design,
 
 # Screenshot
 
